@@ -7,14 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * Created by ipipman on 2020/12/30.
- *
- * @version V1.0
- * @Package com.ipman.springcloud.nacos.config.sample.api
- * @Description: (用一句话描述该文件做什么)
- * @date 2020/12/30 11:12 上午
- */
 
 @Controller
 @RequestMapping("config")
@@ -22,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RefreshScope
 public class NacosConfigController {
 
-    //通过 Nacos 的 @NacosValue 注解设置属性值
     @Value(value = "${nacos.test.propertie:null}")
     private String testProperties;
 
