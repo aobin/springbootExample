@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("config")
-//开启自动更新
 @RefreshScope
 public class NacosConfigController {
 
-    @Value(value = "${nacos.test.propertie:null}")
+    @Value(value = "${aobin.name:null}")
     private String testProperties;
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)

@@ -4,6 +4,7 @@ import com.ipman.springcloud.nacos.config.sample.config.DynamicThreadPool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -27,7 +28,7 @@ public class ThreadPoolController {
      * @param count
      */
     @GetMapping("/add")
-    public String dynamicThreadPoolAddTask(int count) {
+    public String dynamicThreadPoolAddTask(@RequestParam int count) {
         dynamicThreadPool.dynamicThreadPoolAddTask(count);
         return String.valueOf(count);
     }

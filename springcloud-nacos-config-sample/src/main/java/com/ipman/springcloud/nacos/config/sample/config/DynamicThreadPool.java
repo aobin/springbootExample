@@ -47,7 +47,7 @@ public class DynamicThreadPool implements InitializingBean {
                 });
 
         //nacos配置变更监听
-        nacosConfigManager.getConfigService().addListener("order-service-dev.yml", nacosConfigProperties.getGroup(),
+        nacosConfigManager.getConfigService().addListener("test.yaml", nacosConfigProperties.getGroup(),
                 new Listener() {
                     @Override
                     public Executor getExecutor() {
@@ -57,7 +57,7 @@ public class DynamicThreadPool implements InitializingBean {
                     @Override
                     public void receiveConfigInfo(String configInfo) {
                         //配置变更，修改线程池配置
-                        System.out.println(configInfo);
+                        System.out.println("========config changed====:"+configInfo);
                         changeThreadPoolConfig(Integer.parseInt(coreSize), Integer.parseInt(maxSize));
                     }
                 });
@@ -85,7 +85,7 @@ public class DynamicThreadPool implements InitializingBean {
                 @Override
                 public void run() {
                     try {
-                        System.out.println(finalI);
+                        System.out.println("====start to run task:"+finalI);
                         Thread.sleep(10000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
